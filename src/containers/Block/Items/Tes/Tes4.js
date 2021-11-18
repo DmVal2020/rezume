@@ -6,7 +6,7 @@ import Select from '../../../../components/UI/Select/Select'
 import TextArea from '../../../../components/UI/TextArea/TextArea'
 import Checkbox from '../../../../components/UI/Checkbox/Checkbox'
 import is from 'is_js'
-import classes from './Tes3.css'
+import classes from './Tes4.css'
 
 
 function Tes4({state,setStateHandler,onClick,remove}) {

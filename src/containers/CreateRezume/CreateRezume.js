@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import {showAll, setBlock, addSubBlock, removeSubBlock} from '../../actions/index'
 import css from './CreateRezume.css'
@@ -35,6 +36,11 @@ function CreateRezume({data, setBlock, addSubBlock, removeSubBlock}) {
                     <Button type='success' disabled={data.blocks.some(block=>!block.isFormValid)}>
                         Сохранить
                     </Button>
+                    <Link to={'/'}>
+                        <Button type='primary' disabled={false}>
+                            На главную
+                        </Button>
+                    </Link>
                 </div>                
             </div>            
         </div>
