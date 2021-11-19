@@ -8,7 +8,9 @@ function TextArea({state,onChange}) {
              <textarea 
                 value={state.value}
                 placeholder={state.placeholder}
+                spellCheck= {false}
                 onChange={onChange}
+
             />   
         </div>
     )

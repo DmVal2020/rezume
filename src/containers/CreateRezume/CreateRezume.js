@@ -56,7 +56,11 @@ function CreateRezume({data, setBlock, addSubBlock, removeSubBlock, togglePrewSh
                         </Button>
                     }
                     
-                    <Button type='success' disabled={data.blocks.some(block=>!block.isFormValid)}>
+                    <Button
+                        type='success' 
+                        disabled={data.blocks.some(block=>!block.isFormValid)}
+                        onClick={()=>console.log(JSON.stringify(data))}
+                    >
                         Сохранить
                     </Button>
                     <Link to={'/'}>

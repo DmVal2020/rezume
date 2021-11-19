@@ -329,15 +329,15 @@ const initialState = {
                             disabled:true,
                         },
                         {
-                            value:'1',
+                            value:'Бакалавр',
                             text:'Бакалавр'
                         },
                         {
-                            value:'2',
+                            value:'Специалист',
                             text:'Специалист'
                         },
                         {
-                            value:'3',
+                            value:'Магистр',
                             text:'Магистр'
                         },
                     ],
