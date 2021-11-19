@@ -73,7 +73,7 @@ function Tes4({state,setStateHandler,onClick,remove}) {
       
       let control = { ...formControls[controlName] }
       const controls = control.controls.map(ctrl=>ctrl.id===id?{...ctrl,checked:!ctrl.checked}:{...ctrl})
-      const text = controls.reduce((a,b)=>b.checked?a + ', ' + b.value:a,'')
+      const text = controls.reduce((a,b)=>b.checked?a  + b.value:a ,'')
       
       const value = text
       control={...control,controls,value}

@@ -14,8 +14,13 @@ function PrewResume({data}) {
         return data.blocks.map(block=>{
             return (
                 <div key={block.id} className={css.Title}>
-                    {block.title}
-                    {getSubResume(block)}
+                    {block.title && block.value!==''
+                        ?<>
+                            {block.title}
+                            {getSubResume(block)} 
+                        </> 
+                        :null
+                    }
                 </div>                    
             )
         })
@@ -27,10 +32,15 @@ function PrewResume({data}) {
             return (
                 <div key={key+index} className={css.SubTitle}>
                     <div>
-                        {formControls[key].label + ': '}
-                        <span>
-                            {formControls[key].value}
-                        </span>
+                        {formControls[key].label && formControls[key].value!==''
+                            ?<>
+                                {formControls[key].label + ': '}
+                                <span>
+                                    {formControls[key].value}
+                                </span>
+                            </>
+                            :null
+                        }           
                     </div>
                 </div>
             )

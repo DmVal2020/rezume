@@ -143,7 +143,7 @@ const initialState = {
                 goals: {
                     control:'textArea',
                     value: '',
-                    label: 'Ваши цели',
+                    label: 'Цели',
                     placeholder:'определите, каких результатов вы ожидаете ',
                     errorMessage: 'Введите ваши цели',
                     valid: false,
@@ -163,7 +163,7 @@ const initialState = {
                 competence: {
                     control:'textArea',
                     value: '',
-                    label: 'Ваши профессиональные компетенции',
+                    label: 'Профессиональные компетенции',
                     placeholder:'определите, Ваши профессиональные компетенции ',
                     errorMessage: 'Введите ваши профессиональные компетенции',
                     valid: false,
@@ -183,7 +183,7 @@ const initialState = {
                 skills: {
                     control:'textArea',
                     value: '',
-                    label: 'Ваши дополнительные навыки',
+                    label: 'Дополнительные навыки',
                     placeholder:'определите, каких дополнительными навыками вы владеете ',
                     errorMessage: 'Введите ваши дополнительные навыки',
                     valid: false,
@@ -396,7 +396,7 @@ const initialState = {
                 skills: {
                     control:'textArea',
                     value: '',
-                    label: 'Ваше неформальное образование',
+                    label: 'Неформальное образование',
                     placeholder:'Данные о неформальном образовании: курсы, тренинги, семинары , прочее ',
                     errorMessage: 'Введите данные о неформальном образовании, если нет, так и напишите',
                     valid: false,
