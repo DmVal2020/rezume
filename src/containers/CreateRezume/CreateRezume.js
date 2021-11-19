@@ -1,38 +1,61 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-import {showAll, setBlock, addSubBlock, removeSubBlock} from '../../actions/index'
+import {showAll, setBlock, addSubBlock, removeSubBlock, togglePrewShow} from '../../actions/index'
 import css from './CreateRezume.css'
 import Button from '../../components/UI/Button/Button'
 import Block from '../Block/Block'
 import Tes4 from '../Block/Items/Tes/Tes4'
+import PrewResume from '../PrewResume/PrewResume';
 
 
 
-function CreateRezume({data, setBlock, addSubBlock, removeSubBlock}) {
+function CreateRezume({data, setBlock, addSubBlock, removeSubBlock, togglePrewShow}) {
+    function renderEdit(){
+        return (
+            data.blocks.map((block,index)=>{
+                return (
+                    <Block key={index}>
+                        <Tes4 
+                            state={block} 
+                            setStateHandler={setBlock} 
+                            onClick={addSubBlock}
+                            remove={removeSubBlock}
+                        />
+                    </Block>
+                    
+                )
+            })
+        )
+    }
+    function prewShow(){
+        return (
+            <Block>
+                <PrewResume data={data} />
+            </Block> 
+        ) 
+    }
+    
     return (
         <div className={css.CreateRezume}>
             <div className={css.CreateRezumeWrapper}>
-                <h1>Страница создания резюме</h1>
-                {data.blocks.map((block,index)=>{
-                    return (
-                        <Block key={index}>
-                            <Tes4 
-                                state={block} 
-                                setStateHandler={setBlock} 
-                                onClick={addSubBlock}
-                                remove={removeSubBlock}
-                            />
-                        </Block>
-                        
-                    )
-                })}
                 
+                <h1>Страница создания резюме</h1>
+                {data.showPrew
+                    ?prewShow()
+                    :renderEdit()
+                }            
                 
                 <div>
-                    <Button type='primary' disabled={data.blocks.some(block=>!block.isFormValid)}>
-                        Предпросмотр
-                    </Button>
+                    {data.showPrew
+                        ?<Button type='primary' disabled={data.blocks.some(block=>!block.isFormValid)} onClick={togglePrewShow}>
+                            Редактировать
+                        </Button>
+                        :<Button type='primary' disabled={data.blocks.some(block=>!block.isFormValid)} onClick={togglePrewShow}>
+                            Предпросмотр
+                        </Button>
+                    }
+                    
                     <Button type='success' disabled={data.blocks.some(block=>!block.isFormValid)}>
                         Сохранить
                     </Button>
@@ -42,7 +65,11 @@ function CreateRezume({data, setBlock, addSubBlock, removeSubBlock}) {
                         </Button>
                     </Link>
                 </div>                
-            </div>            
+            </div>
+            <div>
+                
+            </div>
+                
         </div>
     )
 }
@@ -55,6 +82,7 @@ function mapDispatchToProps(dispatch){
 		setBlock:(id,formControls,isFormValid)=>dispatch(setBlock(id,formControls,isFormValid)),
         addSubBlock:(id)=>dispatch(addSubBlock(id)),
         removeSubBlock:(id,num)=>dispatch(removeSubBlock(id,num)),
+        togglePrewShow:()=>dispatch(togglePrewShow()),
 	}
 }
 

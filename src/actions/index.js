@@ -1,4 +1,4 @@
-import { SHOW_ALL, SET_BLOCK, ADD_SUB_BLOCK, REMOVE_SUB_BLOCK} from "./actions"
+import { SHOW_ALL, SET_BLOCK, ADD_SUB_BLOCK, REMOVE_SUB_BLOCK, TOGGLE_PREW_SHOW} from "./actions"
 
 export const showAll =() => {
     return {
@@ -24,6 +24,11 @@ export const removeSubBlock =(id,num) => {
         type:REMOVE_SUB_BLOCK, 
         id,
         num, 
+    }
+}
+export const togglePrewShow =() => {
+    return {
+        type:TOGGLE_PREW_SHOW, 
     }
 }
 

@@ -1,4 +1,4 @@
-import { SHOW_ALL, SET_BLOCK, ADD_SUB_BLOCK, REMOVE_SUB_BLOCK} from '../actions/actions';
+import { SHOW_ALL, SET_BLOCK, ADD_SUB_BLOCK, REMOVE_SUB_BLOCK, TOGGLE_PREW_SHOW} from '../actions/actions';
 import initialState from './initialState';
 
 export default function dataReduser(state=initialState,action){
@@ -49,6 +49,12 @@ export default function dataReduser(state=initialState,action){
             return {
                ...state,
                blocks
+            }
+        }
+        case TOGGLE_PREW_SHOW: {            
+            return {
+               ...state,
+               showPrew:!state.showPrew               
             }
         }
                              
