@@ -14,3 +14,11 @@
     color: #fff;
     margin-left: 10px;
 }
+.PDFDownloadLink {
+    padding: 10px;
+    font-weight: 700;
+    font-size: 20px;
+}
+.PDFDownloadLink a:hover{
+    color:coral;
+}

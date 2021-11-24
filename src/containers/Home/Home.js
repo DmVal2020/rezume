@@ -13,7 +13,6 @@ function Home() {
                         Создать резюме
                     </Button>
                 </Link>
-                
             </div>            
         </div>
     )

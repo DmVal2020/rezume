@@ -7,6 +7,9 @@ import Button from '../../components/UI/Button/Button'
 import Block from '../Block/Block'
 import Tes4 from '../Block/Items/Tes/Tes4'
 import PrewResume from '../PrewResume/PrewResume';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import PrewRezumePdf from '../PrewResume/PrewRezumePdf';
+
 
 
 
@@ -30,10 +33,33 @@ function CreateRezume({data, setBlock, addSubBlock, removeSubBlock, togglePrewSh
     }
     function prewShow(){
         return (
-            <Block>
-                <PrewResume data={data} />
-            </Block> 
+            <>
+                <Block>
+                    <PrewResume data={data} />
+                    <div className={css.PDFDownloadLink}>
+                        <PDFDownloadLink document={<PrewRezumePdf blocks={data.blocks}/> } fileName="example.pdf">
+                            {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download pdf!')}
+                        </PDFDownloadLink>
+                    </div>
+                    
+                </Block> 
+                
+            </>
         ) 
+    }
+    function submitHandler(){
+
+        fetch("http://rezume",{
+            method: 'POST',
+            header: {
+                'Content-Type': 'application/x-www-form-urlencoded',                
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response=>response.text())
+        .then(response=>{
+            console.log(response) 
+        })
     }
     
     return (
@@ -59,11 +85,12 @@ function CreateRezume({data, setBlock, addSubBlock, removeSubBlock, togglePrewSh
                     <Button
                         type='success' 
                         disabled={data.blocks.some(block=>!block.isFormValid)}
-                        onClick={()=>console.log(JSON.stringify(data))}
+                        onClick={submitHandler}
+                        // console.log(JSON.stringify(data))
                     >
                         Сохранить
                     </Button>
-                    <Link to={'/'}>
+                    <Link to={'/create_rezume'}>
                         <Button type='primary' disabled={false}>
                             На главную
                         </Button>
