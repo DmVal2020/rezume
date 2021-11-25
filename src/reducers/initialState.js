@@ -1,6 +1,7 @@
 import uuid from "react-uuid";
 
 const initialState = {
+    id:uuid(),
     showPrew:false,
     blocks:[
         {

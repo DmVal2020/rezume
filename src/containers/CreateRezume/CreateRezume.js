@@ -9,6 +9,7 @@ import Tes4 from '../Block/Items/Tes/Tes4'
 import PrewResume from '../PrewResume/PrewResume';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import PrewRezumePdf from '../PrewResume/PrewRezumePdf';
+import axios from 'axios'
 
 
 
@@ -48,19 +49,37 @@ function CreateRezume({data, setBlock, addSubBlock, removeSubBlock, togglePrewSh
         ) 
     }
     function submitHandler(){
-
-        fetch("http://rezume",{
-            method: 'POST',
-            header: {
-                'Content-Type': 'application/x-www-form-urlencoded',                
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response=>response.text())
-        .then(response=>{
-            console.log(response) 
-        })
-    }
+        
+      const params = {
+                link: data.id,
+                data:JSON.stringify(data)
+              }
+    //         headers:{
+    //             'Content-Type': 'application/x-www-form-urlencoded'
+    //           }
+          
+        axios.post(`http://rezume`, {params})
+            .then(res => {
+              console.log(res);
+              console.log(res.data);
+            })
+        }
+    //     axios.get('http://rezume').then(response => {
+    //   console.log(response)
+    // })
+        // fetch("http://rezume",{
+        //     method: 'POST',
+        //     header: {
+        //         'Content-Type': 'application/x-www-form-urlencoded',                
+        //     },
+        //     link: data.id,
+        //     data:JSON.stringify(data)
+        // })
+        // .then(response=>response.text())
+        // .then(response=>{
+        //     console.log(response) 
+        // })
+    //}
     
     return (
         <div className={css.CreateRezume}>
