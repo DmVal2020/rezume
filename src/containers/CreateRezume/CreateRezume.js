@@ -109,7 +109,7 @@ function CreateRezume({data, setBlock, addSubBlock, removeSubBlock, togglePrewSh
                     >
                         Сохранить
                     </Button>
-                    <Link to={'/create_rezume'}>
+                    <Link to={'/'}>
                         <Button type='primary' disabled={false}>
                             На главную
                         </Button>
