@@ -3,13 +3,15 @@ import Layout from './hoc/Layout/Layout';
 import {Routes,Route} from 'react-router-dom'
 import Home from './containers/Home/Home'
 import CreateRezume from './containers/CreateRezume/CreateRezume';
+import Pdf from './containers/PrewResume/ResumePdf/Pdf'
 
 function App() {
   return (
     <div className="App">
       <Layout>
         <Routes>         
-          <Route path="/create_rezume"  element={<CreateRezume/>} />
+          <Route path="/create_rezume"  element={<CreateRezume />} />
+          <Route path="/pdf"  element={<Pdf />} />
           <Route path="/" exact element={<Home/>} />
           <Route render={()=><h1 style={{textAlign:'center',color:'red'}}>404 not found</h1>} />
         </Routes>    

@@ -10,7 +10,7 @@ function Checkbox({state,onChange}) {
             
             return (
                 <div key={index} >
-                    <label htmlFor={ctrl.name}>{ctrl.label}</label>
+                    
                     <input                        
                         type={ctrl.type}
                         name={ctrl.name}
@@ -18,6 +18,7 @@ function Checkbox({state,onChange}) {
                         checked={ctrl.checked}
                         onChange={(event)=>onChange(event,ctrl.id)}
                     />
+                    <label htmlFor={ctrl.name}>{ctrl.label}</label>
                 </div>
                 
             )            

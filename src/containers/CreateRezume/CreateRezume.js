@@ -9,7 +9,8 @@ import Tes4 from '../Block/Items/Tes/Tes4'
 import PrewResume from '../PrewResume/PrewResume';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import PrewRezumePdf from '../PrewResume/PrewRezumePdf';
-import axios from 'axios'
+import Resume from '../PrewResume/ResumePdf/index'
+// import axios from 'axios'
 
 
 
@@ -38,7 +39,7 @@ function CreateRezume({data, setBlock, addSubBlock, removeSubBlock, togglePrewSh
                 <Block>
                     <PrewResume data={data} />
                     <div className={css.PDFDownloadLink}>
-                        <PDFDownloadLink document={<PrewRezumePdf blocks={data.blocks}/> } fileName="example.pdf">
+                        <PDFDownloadLink document={<Resume data={data}/> } fileName="example.pdf">
                             {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download pdf!')}
                         </PDFDownloadLink>
                     </div>
@@ -48,22 +49,39 @@ function CreateRezume({data, setBlock, addSubBlock, removeSubBlock, togglePrewSh
             </>
         ) 
     }
+   
     function submitHandler(){
+        fetch("http://localhost:3500", {
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify({act:'123'})
+    })
+      .then(response => response.text())
+      .then(response => {
+        console.log(response);
         
-      const params = {
-                link: data.id,
-                data:JSON.stringify(data)
-              }
-    //         headers:{
+      })
+    }
+        
+        
+        
+    //   const params = {
+    //             link: data.id,
+    //             // data:JSON.stringify(data),
+    //             headers:{
     //             'Content-Type': 'application/x-www-form-urlencoded'
+    //             } 
     //           }
+    
           
-        axios.post(`http://rezume`, {params})
-            .then(res => {
-              console.log(res);
-              console.log(res.data);
-            })
-        }
+        // axios.get(`http://rezume`)
+        //     .then(res => {
+        //       console.log(res);
+        //       console.log(res.data);
+        //     })
+        // }
     //     axios.get('http://rezume').then(response => {
     //   console.log(response)
     // })
