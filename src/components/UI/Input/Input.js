@@ -16,7 +16,15 @@ const Input = props => {
 
   return (
     <div className={cls.join(' ')}>
-      <label htmlFor={htmlFor}>{props.label}</label>
+      <label htmlFor={htmlFor}>
+          {props.label}
+          <br/>
+          <span style={{'fontSize':'10px'}}>{!props.valid 
+                  ?'(*обязательное поле)'
+                  :null
+                 }
+          </span>
+      </label>
       <input
         type={inputType}
         id={htmlFor}

@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
       arr.push(educ)
     }
   }
-  console.log(arr)
   function renderText(){
     return arr.map((ed,index)=>(
       <div key={index}>

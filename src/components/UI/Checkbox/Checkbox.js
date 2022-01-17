@@ -15,10 +15,11 @@ function Checkbox({state,onChange}) {
                         type={ctrl.type}
                         name={ctrl.name}
                         value={ctrl.value}
+                        id={ctrl.value + index}
                         checked={ctrl.checked}
                         onChange={(event)=>onChange(event,ctrl.id)}
                     />
-                    <label htmlFor={ctrl.name}>{ctrl.label}</label>
+                    <label htmlFor={ctrl.value + index}>{ctrl.label}</label>
                 </div>
                 
             )            

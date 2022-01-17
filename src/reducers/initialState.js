@@ -56,7 +56,7 @@ const initialState = {
                     control:'input',
                     value: '',
                     type: 'email',
-                    label: 'Email',
+                    label: 'email',
                     errorMessage: 'Введите корректный email',
                     valid: false,
                     touched: false,
@@ -69,7 +69,7 @@ const initialState = {
                     control:'input',
                     value: '',
                     type: 'tel',
-                    label: 'Телефон',
+                    label: 'телефон',
                     errorMessage: 'Введите корректный номер телефона',
                     valid: false,
                     touched: false,
@@ -144,7 +144,7 @@ const initialState = {
                 goals: {
                     control:'textArea',
                     value: '',
-                    label: 'Цели',
+                    label: 'цели',
                     placeholder:'введите через точку с запятой каких результатов вы ожидаете ',
                     errorMessage: 'Введите ваши цели',
                     valid: false,
@@ -164,7 +164,7 @@ const initialState = {
                 competence: {
                     control:'textArea',
                     value: '',
-                    label: 'Профессиональные компетенции',
+                    label: 'профессиональные компетенции',
                     placeholder:'перечислите через точку с запятой  Ваши профессиональные компетенции ',
                     errorMessage: 'Введите ваши профессиональные компетенции',
                     valid: false,
@@ -184,7 +184,7 @@ const initialState = {
                 skills: {
                     control:'textArea',
                     value: '',
-                    label: 'Дополнительные навыки',
+                    label: 'дополнительные навыки',
                     placeholder:'перечислите через точку с запятой какими дополнительными навыками вы владеете ',
                     errorMessage: 'Введите ваши дополнительные навыки',
                     valid: false,
@@ -197,7 +197,7 @@ const initialState = {
         },
         {
             id:uuid(),
-            title:'Каръера',
+            title:'Карьера',
             isFormValid: true,
             isEdit:false,
             count:0,
@@ -266,7 +266,7 @@ const initialState = {
                 functions: {
                         control:'textArea',
                         value: '',
-                        label: 'Выполняемые функции, профессиональные достижения на должности',
+                        label: 'выполняемые функции, профессиональные достижения на должности',
                         placeholder:'перечислите через точку с запятой, какие функции выполняли на занимаемой должности, каких профессиональных достижений добились',
                         errorMessage: 'Введите ваши функции и достижения',
                         valid: false,
@@ -397,7 +397,7 @@ const initialState = {
                 skills: {
                     control:'textArea',
                     value: '',
-                    label: 'Неформальное образование',
+                    label: 'неформальное образование',
                     placeholder:'Перечислите через точку с запятой данные о неформальном образовании: курсы; тренинги; семинары; прочее; ',
                     errorMessage: 'Введите данные о неформальном образовании, если нет, так и напишите',
                     valid: false,
@@ -732,7 +732,7 @@ const initialState = {
                 languages: {
                     control:'textArea',
                     value: '',
-                    label: 'Владение языками',
+                    label: 'владение языками',
                     placeholder:'введите через точку с запятой какими языками владеете, степень владения ',
                     errorMessage: 'Введите данные о неформальном образовании, если нет, так и напишите',
                     valid:true,
@@ -744,7 +744,7 @@ const initialState = {
                 tolerance: {
                     control:'textArea',
                     value: '',
-                    label: 'Допуски и разрешения',
+                    label: 'допуски и разрешения',
                     placeholder:'введите через точку с запятой наличие допусков к спец.работам с особым характером выполнения. Работы на высоте, с высоким напряжением, прочее. ',
                     errorMessage: 'Введите данные о неформальном образовании, если нет, так и напишите',
                     valid: true,

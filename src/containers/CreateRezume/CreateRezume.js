@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import {showAll, setBlock, addSubBlock, removeSubBlock, togglePrewShow} from '../../actions/index'
@@ -8,14 +8,17 @@ import Block from '../Block/Block'
 import Tes4 from '../Block/Items/Tes/Tes4'
 import PrewResume from '../PrewResume/PrewResume';
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import PrewRezumePdf from '../PrewResume/PrewRezumePdf';
+// import PrewRezumePdf from '../PrewResume/PrewRezumePdf';
 import Resume from '../PrewResume/ResumePdf/index'
+import Saving from '../Saving/Saving';
 // import axios from 'axios'
 
 
 
 
 function CreateRezume({data, setBlock, addSubBlock, removeSubBlock, togglePrewShow}) {
+    const [res, setRes] = useState('') 
+
     function renderEdit(){
         return (
             data.blocks.map((block,index)=>{
@@ -51,95 +54,78 @@ function CreateRezume({data, setBlock, addSubBlock, removeSubBlock, togglePrewSh
     }
    
     function submitHandler(){
+        const dataStr = JSON.stringify(data)
         fetch("http://localhost:3500", {
       method: 'POST',
       header: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: JSON.stringify({act:'123'})
+      body: JSON.stringify({act:dataStr})
     })
       .then(response => response.text())
       .then(response => {
-        console.log(response);
+        setRes(response);
         
       })
     }
-        
-        
-        
-    //   const params = {
-    //             link: data.id,
-    //             // data:JSON.stringify(data),
-    //             headers:{
-    //             'Content-Type': 'application/x-www-form-urlencoded'
-    //             } 
-    //           }
-    
-          
-        // axios.get(`http://rezume`)
-        //     .then(res => {
-        //       console.log(res);
-        //       console.log(res.data);
-        //     })
-        // }
-    //     axios.get('http://rezume').then(response => {
-    //   console.log(response)
-    // })
-        // fetch("http://rezume",{
-        //     method: 'POST',
-        //     header: {
-        //         'Content-Type': 'application/x-www-form-urlencoded',                
-        //     },
-        //     link: data.id,
-        //     data:JSON.stringify(data)
-        // })
-        // .then(response=>response.text())
-        // .then(response=>{
-        //     console.log(response) 
-        // })
-    //}
-    
-    return (
-        <div className={css.CreateRezume}>
-            <div className={css.CreateRezumeWrapper}>
-                
-                <h1>Страница создания резюме</h1>
-                {data.showPrew
-                    ?prewShow()
-                    :renderEdit()
-                }            
-                
-                <div>
-                    {data.showPrew
-                        ?<Button type='primary' disabled={data.blocks.some(block=>!block.isFormValid)} onClick={togglePrewShow}>
-                            Редактировать
-                        </Button>
-                        :<Button type='primary' disabled={data.blocks.some(block=>!block.isFormValid)} onClick={togglePrewShow}>
-                            Предпросмотр
-                        </Button>
-                    }
-                    
-                    <Button
-                        type='success' 
-                        disabled={data.blocks.some(block=>!block.isFormValid)}
-                        onClick={submitHandler}
-                        // console.log(JSON.stringify(data))
-                    >
-                        Сохранить
-                    </Button>
-                    <Link to={'/'}>
-                        <Button type='primary' disabled={false}>
-                            На главную
-                        </Button>
-                    </Link>
-                </div>                
+    if(res===''){
+            return (
+                <div className={css.CreateRezume}>
+                    <div className={css.CreateRezumeWrapper}>
+                        
+                        <h1>Страница создания резюме</h1>
+                            {data.showPrew
+                                ?prewShow()
+                                :renderEdit()
+                            }            
+                            
+                            <div>
+                                {data.showPrew
+                                    ?<Button type='primary' disabled={data.blocks.some(block=>!block.isFormValid)} onClick={togglePrewShow}>
+                                        Редактировать
+                                    </Button>
+                                    :<Button type='primary' disabled={data.blocks.some(block=>!block.isFormValid)} onClick={togglePrewShow}>
+                                        Предпросмотр
+                                    </Button>
+                                }
+                                
+                                <Button
+                                    type='success' 
+                                    disabled={data.blocks.some(block=>!block.isFormValid)}
+                                    onClick={submitHandler}
+                                >
+                                    Сохранить
+                                </Button>
+                                <Link to={'/'}>
+                                    <Button type='primary' disabled={false}>
+                                        На главную
+                                    </Button>
+                                </Link>
+                            </div>                
+                    </div>
+                    <div>
+                        
+                    </div>
+                        
+                </div>
+            )
+    }else{
+        return (
+            <div className={css.CreateRezume}>
+                    <div className={css.CreateRezumeWrapper}>
+                        <Saving res={res}/>
+                        <div>
+                            <Link to={'/'}>
+                                <Button type='primary' disabled={false}>
+                                    На главную
+                                </Button>
+                            </Link>
+                        </div>                        
+                    </div>
             </div>
-            <div>
-                
-            </div>
-                
-        </div>
-    )
+        )
+    }
+    
 }
 function mapStateToProps(data){
 	return {...data}

@@ -1,4 +1,4 @@
-.Home {
+.ResumeReading {
     display: flex;
     justify-content: center;
     padding-top: 100px;
@@ -6,11 +6,19 @@
     width: 100%;
     background: linear-gradient(90deg, #f7f7fa 0%, #b9b9b9 100%);
 }
-.HomeWrapper {
+.ResumeReadingWrapper {
     width: 600px;
     text-align: center;
 }
-.Home h1 {
+.ResumeReading h1 {
     color: #F73;
     margin-left: 10px;
+}
+.PDFDownloadLink {
+    padding: 10px;
+    font-weight: 700;
+    font-size: 20px;
+}
+.PDFDownloadLink a:hover{
+    color:coral;
 }

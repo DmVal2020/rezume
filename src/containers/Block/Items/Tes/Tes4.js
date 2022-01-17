@@ -95,6 +95,7 @@ function Tes4({state,setStateHandler,onClick,remove}) {
                         valid={control.valid}
                         touched={control.touched}
                         label={control.label}
+                        validation={control.validation} // для прописки обязательности заполнения поля
                         shouldValidate={!!control.validation}
                         errorMessage={control.errorMessage}
                         onChange={event => onChangeHandler(event, controlName)}

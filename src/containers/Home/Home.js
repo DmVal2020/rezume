@@ -9,9 +9,25 @@ function Home() {
             <div className={css.HomeWrapper}>
                 <h1>Домашняя страница</h1>
                 <Link to={'/create_rezume'}>
-                    <Button type='primary'>
-                        Создать резюме
-                    </Button>
+                    <div style={{marginTop:'20px'}}>
+                        <Button type='primary' style={{minWidth: '240px'}}>
+                            Создать резюме
+                        </Button>
+                    </div>    
+                </Link>
+                <Link to={'/read_rezume'}>
+                    <div style={{marginTop:'20px'}}>
+                        <Button type='primary' style={{minWidth: '240px'}}>
+                            Просмотр резюме
+                        </Button>
+                    </div>    
+                </Link>
+                <Link to={'/edit_rezume'} >
+                    <div style={{marginTop:'20px'}}>
+                        <Button type='primary' style={{minWidth: '240px'}}>
+                            Редактирование резюме
+                        </Button>
+                    </div>                    
                 </Link>
             </div>            
         </div>
