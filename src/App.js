@@ -8,6 +8,7 @@ import CreateRezume from './containers/CreateRezume/CreateRezume';
 import Pdf from './containers/PrewResume/ResumePdf/Pdf'
 import ResumeReading from './containers/ResumeReading/ResumeReading';
 import ResumeEditing from './containers/ResumeEditing/ResumeEditing';
+import Error from './containers/Error/Error';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <Route path='/edit_rezume/:hash' element={<ResumeEditing />} />
           <Route path="/pdf"  element={<Pdf />} />
           <Route path="/" exact element={<Home/>} />
-          <Route render={()=><h1 style={{textAlign:'center',color:'red'}}>404 not found</h1>} />
+          <Route path="*" element={<Error />} />
         </Routes>    
       </Layout>
     </div>
