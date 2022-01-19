@@ -132,10 +132,14 @@ function ResumeEditing() {
 
         </div>
         :<div className={css.ResumeEditingWrapper}>
-          
-        <h1>Резюме успешно отредактировано</h1>
 
-        <div style={{marginBottom:'15px'}}>            
+        <h1>Ваше резюме успешно отредактировано</h1>
+        <p>ссылка на ваше резюме</p>
+        <a href={`/${JSON.parse(res).url}`}>{`/${JSON.parse(res).url}`}</a>
+        <p>ссылка для редактирования,<span style={{color:'red'}}>будьте внимательны - не передавайте эту ссылку третьим лицам</span> </p>
+        <a href={`/edit/${JSON.parse(res).edit}`}>{`/edit/${JSON.parse(res).edit}`}</a>
+
+        <div style={{margin:'15px 0'}}>            
                 <Link to={'/'}>
                     <Button type='primary' disabled={false}>
                         На главную

@@ -100,7 +100,7 @@ http.createServer((req, res) => {
                 })
                     .then(result => {
                         if (result) {
-                            res.end(JSON.stringify({ 'result': true, "resume": result.resume }));
+                            res.end(JSON.stringify({ 'result': true, "resume": result.resume, "url": result.url,"edit": result.edit }));
                             // Notes.destroy({where: {id: result.id}}); // if you want delete message!!!
                         }
                         else {

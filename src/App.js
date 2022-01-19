@@ -15,11 +15,12 @@ function App() {
     <div className="App">
       <Layout>
         <Routes>         
-          <Route path="/create_rezume"  element={<CreateRezume />} />
-          <Route path="/read_rezume"  element={<Finding />} />
-          <Route path='/read_rezume/:hash' element={<ResumeReading />} />
-          <Route path="/edit_rezume"  element={<Editing />} />
-          <Route path='/edit_rezume/:hash' element={<ResumeEditing />} />
+          <Route path="/create"  element={<CreateRezume />} />
+          {/* <Route path="/read_rezume"  element={<Finding />} />
+          <Route path='/read_rezume/:hash' element={<ResumeReading />} /> */}
+          <Route path='/:hash' element={<ResumeReading />} />
+          {/* <Route path="/edit_rezume"  element={<Editing />} /> */}
+          <Route path='/edit/:hash' element={<ResumeEditing />} />
           <Route path="/pdf"  element={<Pdf />} />
           <Route path="/" exact element={<Home/>} />
           <Route path="*" element={<Error />} />

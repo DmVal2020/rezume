@@ -49,14 +49,14 @@ function ResumeReading() {
                     </div>
                 }
                 <div style={{marginTop:'15px'}}>
-                    <Link to={'/read_rezume'}>
+                    {/* <Link to={'/read_rezume'}>
                         <Button type='primary' disabled={false}>
                             Ввести другой хештег
                         </Button>
-                    </Link>
+                    </Link> */}
                     <Link to={'/'}>
                         <Button type='primary' disabled={false}>
-                            На главную
+                            Вернуться на главную страницу
                         </Button>
                     </Link>
                 </div>       
