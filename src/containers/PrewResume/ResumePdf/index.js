@@ -131,7 +131,7 @@ const Resume = ({data}) => (
         </View>
         
       </View>
-      <Text style={styles.footer}>This IS the candidate you are looking for</Text>
+      {/* <Text style={styles.footer}>This IS the candidate you are looking for</Text> */}
     </Page>
   </Document>
   

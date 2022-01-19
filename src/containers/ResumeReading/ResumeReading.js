@@ -43,7 +43,7 @@ function ResumeReading() {
                 {
                     data!==undefined
                     ?<div style={{marginBottom:'15px'}} className={css.PDFDownloadLink}>
-                            <PDFDownloadLink document={<Resume data={data}/> } fileName="example.pdf">
+                            <PDFDownloadLink document={<Resume data={data}/> } fileName={data.blocks[0].formControls.name.value}>
                                 {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download pdf!')}
                             </PDFDownloadLink>
                     </div>
