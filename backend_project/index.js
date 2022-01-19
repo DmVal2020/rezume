@@ -10,9 +10,8 @@ const Notes = db.notes;
 const randomstring = require("randomstring");
 
 
-
 //удаление записей старше 90 дней раз в день
-setInterval(Notes.destroy({
+let remove = ()=>Notes.destroy({
         where: {
             'timestamp':{
                 [Op.lte]: Math.floor(Date.now() / 1000) - 60*60*24*90
@@ -20,7 +19,8 @@ setInterval(Notes.destroy({
         }}        
       ).then((res) => {
         console.log(res);
-      }), 1000*60*60*24);    
+      })
+setInterval(remove, 1000*60*60*24);    
 
 
 http.createServer((req, res) => {
