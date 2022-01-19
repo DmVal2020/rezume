@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {Helmet} from "react-helmet"
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import {showAll, setBlock, addSubBlock, removeSubBlock, togglePrewShow} from '../../actions/index'
@@ -71,6 +72,9 @@ function CreateRezume({data, setBlock, addSubBlock, removeSubBlock, togglePrewSh
     if(res===''){
             return (
                 <div className={css.CreateRezume}>
+                    <Helmet>
+                        <title>Твое резюме | Создание резюме</title>
+                    </Helmet>  
                     <div className={css.CreateRezumeWrapper}>
                         
                         <h1>Страница создания резюме</h1>
@@ -112,6 +116,9 @@ function CreateRezume({data, setBlock, addSubBlock, removeSubBlock, togglePrewSh
     }else{
         return (
             <div className={css.CreateRezume}>
+                    <Helmet>
+                        <title>Твое резюме | Создание резюме</title>
+                    </Helmet>  
                     <div className={css.CreateRezumeWrapper}>
                         <Saving res={res}/>
                         <div>

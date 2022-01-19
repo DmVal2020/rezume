@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {Helmet} from "react-helmet"
 import {useParams, Link} from 'react-router-dom'
 import Button from '../../components/UI/Button/Button'
 import { PDFDownloadLink } from '@react-pdf/renderer';
@@ -34,7 +35,10 @@ function ResumeReading() {
     return (
         <div className={css.ResumeReading}>
             <div className={css.ResumeReadingWrapper}>
-                
+                <Helmet>
+                    <title>Твое резюме | Просмотр резюме</title>
+                </Helmet> 
+
                 <h1>Страница загрузки резюме</h1>
                 {
                     data!==undefined

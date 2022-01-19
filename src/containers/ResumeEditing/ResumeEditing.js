@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {Helmet} from "react-helmet"
 import {useParams, Link} from 'react-router-dom'
 import Block from '../Block/Block'
 import Tes4 from '../Block/Items/Tes/Tes4'
@@ -102,6 +103,9 @@ function ResumeEditing() {
     
     return (
       <div className={css.ResumeEditing}>
+        <Helmet>
+          <title>Твое резюме | Редактирование резюме</title>
+        </Helmet>
         {!editing
         ?<div className={css.ResumeEditingWrapper}>
           

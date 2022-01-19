@@ -2,8 +2,8 @@ import './App.css';
 import Layout from './hoc/Layout/Layout';
 import {Routes,Route} from 'react-router-dom'
 import Home from './containers/Home/Home'
-import Finding from './containers/Finding/Finding';
-import Editing from './containers/Editing/Editing';
+// import Finding from './containers/Finding/Finding';
+// import Editing from './containers/Editing/Editing';
 import CreateRezume from './containers/CreateRezume/CreateRezume';
 import Pdf from './containers/PrewResume/ResumePdf/Pdf'
 import ResumeReading from './containers/ResumeReading/ResumeReading';

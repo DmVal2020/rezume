@@ -1,11 +1,17 @@
 import React from 'react'
+import {Helmet} from "react-helmet"
 import { Link } from "react-router-dom";
 import css from './Home.css'
 import Button from '../../components/UI/Button/Button'
 
 function Home() {
     return (
-        <div className={css.Home}>           
+        <div className={css.Home}>  
+            <Helmet>
+                {/* <meta charSet="utf-8" /> */}
+                <title>Твое резюме | Главная страница</title>
+                {/* <link rel="canonical" href="http://mysite.com/example" /> */}
+            </Helmet>         
             <div className={css.HomeWrapper}>
                 <h1>Конструктор создания резюме</h1>
                 <p>здесь вы можете создать свое резюме</p>
