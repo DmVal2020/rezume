@@ -77,7 +77,7 @@ function CreateRezume({data, setBlock, addSubBlock, removeSubBlock, togglePrewSh
                     </Helmet>  
                     <div className={css.CreateRezumeWrapper}>
                         
-                        <h1>Страница создания резюме</h1>
+                        <h1 style={{fontSize:'45px'}}>Заполните поля</h1>
                             {data.showPrew
                                 ?prewShow()
                                 :renderEdit()

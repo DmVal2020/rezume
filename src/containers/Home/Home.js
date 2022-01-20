@@ -14,14 +14,34 @@ function Home() {
             </Helmet>         
             <div className={css.HomeWrapper}>
                 <h1>Конструктор создания резюме</h1>
-                <p>здесь вы можете создать свое резюме</p>
-                <p>после создания вы получите ссылку </p>
-                <p>по ссылке вы или потенциальный работодатель сможете просмотреть резюме</p>
-                <p>если вам надо что-нибудь поменять</p>
-                <p>вы всегда сможете это сделать по ссылке для редактирования</p>
+                <div className={css.HomeText}>
+                    <div>
+                        <i className={'fa fa-check '}>
+                            <span>
+                                здесь вы можете создать свое резюме
+                            </span>
+                        </i>                       
+                    </div>
+                    <div>
+                        <i className={'fa fa-check '}>
+                            <span>
+                                после создания вы получите ссылку, по которой вы или потенциальный работодатель сможете просмотреть резюме
+                            </span>
+                        </i>                       
+                    </div>
+                    <div>
+                        <i className={'fa fa-check '}>
+                            <span>
+                                если вам надо что-нибудь поменять, вы всегда сможете это сделать по ссылке для редактирования
+                            </span>
+                        </i>                       
+                    </div>
+                </div>
+                
+                
                 <Link to={'/create'}>
                     <div style={{marginTop:'20px'}}>
-                        <Button type='primary' style={{minWidth: '240px'}}>
+                        <Button type='primary' style={{minWidth: '240px', background:'coral', cursor:'pointer', color:"rgb(17, 17, 16)"}}>
                             Создать резюме
                         </Button>
                     </div>    
