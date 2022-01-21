@@ -38,7 +38,5 @@
 .Home button:hover {
     font-size: 15px;
     color:rgb(17, 17, 16);
-    /* color:coral;
-    background:red; */
-    
+    transition: font-size .3s ease-in-out;   
 }

@@ -12,6 +12,7 @@ import { PDFDownloadLink } from '@react-pdf/renderer';
 // import PrewRezumePdf from '../PrewResume/PrewRezumePdf';
 import Resume from '../PrewResume/ResumePdf/index'
 import Saving from '../Saving/Saving';
+import env from '../../env.json'
 // import axios from 'axios'
 
 
@@ -56,7 +57,7 @@ function CreateRezume({data, setBlock, addSubBlock, removeSubBlock, togglePrewSh
    
     function submitHandler(){
         const dataStr = JSON.stringify(data)
-        fetch("http://localhost:3500", {
+        fetch(env.urlBackend, {
       method: 'POST',
       header: {
         'Content-Type': 'application/x-www-form-urlencoded',

@@ -5,6 +5,7 @@ import Block from '../Block/Block'
 import Tes4 from '../Block/Items/Tes/Tes4'
 import Button from '../../components/UI/Button/Button'
 import css from './ResumeEditing.css'
+import env from '../../env.json'
 
 
 function ResumeEditing() {
@@ -16,7 +17,7 @@ function ResumeEditing() {
       submitHandler()
     }    
     function submitHandler(){
-        fetch("http://localhost:3500", {
+        fetch(env.urlBackend, {
       method: 'POST',
       header: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -30,7 +31,7 @@ function ResumeEditing() {
     }
     function editingHandler(){
       const dataStr = JSON.stringify(data)
-      fetch("http://localhost:3500", {
+      fetch(env.urlBackend, {
     method: 'POST',
     header: {
       'Content-Type': 'application/x-www-form-urlencoded',

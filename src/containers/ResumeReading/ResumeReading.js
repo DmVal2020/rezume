@@ -5,6 +5,7 @@ import Button from '../../components/UI/Button/Button'
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import Resume from '../PrewResume/ResumePdf/index'
 import css from './ResumeReading.css'
+import env from '../../env.json'
 
 function ResumeReading() {
     let {hash} = useParams()
@@ -12,7 +13,7 @@ function ResumeReading() {
     let data
     submitHandler()
     function submitHandler(){
-        fetch("http://localhost:3500", {
+        fetch(env.urlBackend, {
       method: 'POST',
       header: {
         'Content-Type': 'application/x-www-form-urlencoded',

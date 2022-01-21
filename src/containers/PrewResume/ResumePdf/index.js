@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Text,
   Font,
   Page,
   View,
